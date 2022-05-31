@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate</title>
+    <!-- CSS link -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Google Fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+
+   
+<body>
+    <div class="page__1">
+        <header class="header__page1">
+            <div class="btn__col">
+                <div class="coin" id="coin">
+                    <div class="tails"></div>
+                    <div class="heads"></div>
+                  </div>
+            <a class="btn" id="btn"><div class="hole__btn" id="holeBtn"></div>Donate</a>
+        </div>
+        </header>
+        
+        <div class="bigcard__page1" id="bigCard">
+            <div class="card__page1" id="card">
+                <p class="p__card">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias unde illum fugit minus fugiat officiis vitae enim reiciendis saepe incidunt cumque, quam quos provident repudiandae eaque consectetur aut quisquam aliquid inventore voluptatem vero tenetur quaerat.
+                </p>
+                <div id="numCard">5375 4141 3226 7732</div>
+                <div id="numImg"></div>
+                
+                <a class="btn__card" id="btnCard">Donated</a>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Development -->
+<script src="https://unpkg.com/@popperjs/core@2/dist/umd/popper.min.js"></script>
+<script src="https://unpkg.com/tippy.js@6/dist/tippy-bundle.umd.js"></script>
+
+<!-- Production -->
+<script src="https://unpkg.com/@popperjs/core@2"></script>
+<script src="https://unpkg.com/tippy.js@6"></script>
+<script>
+    btn.onmouseenter=()=>{
+    setTimeout(function(){
+        coin.style.top="4%";
+        coin.style.display="flex";
+        coin.style.transition=".3s";
+        holeBtn.style.width="60px";
+        holeBtn.style.display="flex";
+        btn.style.transition=".5s";
+       }, 80); 
+}
+btn.onclick=()=>{
+    coin.style.display="none";
+    setTimeout(() => {
+    bigCard.style.display='flex';
+    }, 800);
+}
+
+btn.onmouseleave=()=>{
+    coin.style.display="none";
+    holeBtn.style.display="none";
+}
+tippy('#btn', {
+    content:"<p>5375 4141 3226 7732</p>",
+    allowHTML:true,
+    placement:"bottom",
+    arrow:true,
+    animate:"fade",
+    duration:1500,
+    theme:'material',
+    interactive: true,  
+  });
+  btnCard.onclick=()=>{
+      bigCard.style.display="none";
+  }
+  console.log(window);
+  if(window.navigator.userAgentData.mobile==false){
+      numCard.style.display="flex";
+      numImg.style.display="none";
+  }else if(window.navigator.userAgentData.mobile==true){
+      numImg.style.display="flex";
+      numCard.style.display="none";
+  }
+  
+</script>
+
+</body>
+</html>
